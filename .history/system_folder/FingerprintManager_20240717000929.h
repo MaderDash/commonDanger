@@ -4,7 +4,7 @@
 
 #define FINGERPRINTMANAGER_H
 
-#endif
+#endif 
 // Constructor
 FingerprintManager::FingerprintManager(SoftwareSerial& biometricSerial) : finger(biometricSerial) {}
 

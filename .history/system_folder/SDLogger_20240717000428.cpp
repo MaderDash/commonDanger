@@ -23,18 +23,30 @@ bool SDLogger::initialize() {
   return true; 
 }
 
-
 void SDLogger::logData(const String& data) {
-  File dataFile = SD.open("log.txt", FILE_WRITE); // Use a more descriptive file name
+  File dataFile = SD.open("profile.txt", FILE_WRITE); 
   if (dataFile) {
     dataFile.println(data);
     dataFile.close();
   } else {
     // Handle file opening error (e.g., log to Serial)
-    Serial.println("Error opening log file!");
   }
 }
 
-// ... (Rest of your SDLogger.cpp code) ...
+void setup() {
+  Serial.begin(9600);
+  // Initialize SD card logger
+  SDLogger logger(CS_PIN);
+  if (!logger.initialize()) {
+    Serial.println("Card failed, or not present");
+    return;
+  }
+}
 
-
+void loop() {
+  // Example usage: Log a message every 5 seconds
+  if (millis() % 5000 == 0) {
+    String message = "Time: " + String(millis() / 1000) + " seconds";
+    logger.logData(message); 
+  }
+}

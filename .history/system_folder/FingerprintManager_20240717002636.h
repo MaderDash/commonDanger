@@ -1,5 +1,10 @@
 #include "FingerprintManager.h"
 
+#ifndef FINGERPRINTMANAGER_H
+
+#define FINGERPRINTMANAGER_H
+
+#endif
 // Constructor
 FingerprintManager::FingerprintManager(SoftwareSerial& biometricSerial) : finger(biometricSerial) {}
 
