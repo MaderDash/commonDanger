@@ -19,7 +19,7 @@ bool SDLogger::initialize() {
 }
 
 void SDLogger::logData(const String& data) {
-  File file = SD.open("log.txt", FILE_WRITE);
+  File file = SD.open("data.txt", FILE_WRITE);
   if (file) {
     file.println(data);
     file.close();

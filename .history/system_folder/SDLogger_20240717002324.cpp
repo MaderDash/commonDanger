@@ -23,18 +23,14 @@ bool SDLogger::initialize() {
   return true; 
 }
 
-
 void SDLogger::logData(const String& data) {
-  File dataFile = SD.open("log.txt", FILE_WRITE); // Use a more descriptive file name
+  File dataFile = SD.open("profile.txt", FILE_WRITE); 
   if (dataFile) {
     dataFile.println(data);
     dataFile.close();
   } else {
     // Handle file opening error (e.g., log to Serial)
-    Serial.println("Error opening log file!");
   }
 }
-
-// ... (Rest of your SDLogger.cpp code) ...
 
 
